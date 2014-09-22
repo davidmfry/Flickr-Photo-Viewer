@@ -14,6 +14,7 @@
 		EDFC170219D0E9F300E0E598 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDFC170119D0E9F300E0E598 /* Images.xcassets */; };
 		EDFC170519D0E9F300E0E598 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFC170319D0E9F300E0E598 /* LaunchScreen.xib */; };
 		EDFC171119D0E9F300E0E598 /* Flickr_Photo_ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC171019D0E9F300E0E598 /* Flickr_Photo_ViewerTests.swift */; };
+		EDFC171B19D0EB2C00E0E598 /* FlickrHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC171A19D0EB2C00E0E598 /* FlickrHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		EDFC170A19D0E9F300E0E598 /* Flickr-Photo-ViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flickr-Photo-ViewerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFC170F19D0E9F300E0E598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFC171019D0E9F300E0E598 /* Flickr_Photo_ViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flickr_Photo_ViewerTests.swift; sourceTree = "<group>"; };
+		EDFC171A19D0EB2C00E0E598 /* FlickrHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				EDFC170319D0E9F300E0E598 /* LaunchScreen.xib */,
 				EDFC16F919D0E9F300E0E598 /* Flickr_Photo_Viewer.xcdatamodeld */,
 				EDFC16F519D0E9F300E0E598 /* Supporting Files */,
+				EDFC171A19D0EB2C00E0E598 /* FlickrHelper.swift */,
 			);
 			path = "Flickr-Photo-Viewer";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFC171B19D0EB2C00E0E598 /* FlickrHelper.swift in Sources */,
 				EDFC16FD19D0E9F300E0E598 /* ViewController.swift in Sources */,
 				EDFC16FB19D0E9F300E0E598 /* Flickr_Photo_Viewer.xcdatamodeld in Sources */,
 				EDFC16F819D0E9F300E0E598 /* AppDelegate.swift in Sources */,
