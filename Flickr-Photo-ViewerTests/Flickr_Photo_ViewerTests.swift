@@ -33,4 +33,10 @@ class Flickr_Photo_ViewerTests: XCTestCase {
         }
     }
     
+    func testFlickrPhot()
+    {
+        var photo = FlickrPhoto()
+        XCTAssertTrue(true, "Pass")
+    }
+    
 }

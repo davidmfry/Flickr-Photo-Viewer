@@ -8,11 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FlickrHelperProtocol {
 
-    override func viewDidLoad() {
+    @IBOutlet var imageView: UIImageView!
+    var photoListDict: NSDictionary?
+    let flickerHelper = FlickrHelper()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.flickerHelper.delegate = self
+        self.flickerHelper.searchFlickrForString("world")
+
+    }
+    
+    func didGetJsonData(result: NSArray)
+    {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            println(result)
+            
+            var firstImage = result[0] as FlickrPhoto
+            self.imageView.image = firstImage.thumbnail
+            
+        })
     }
 
     override func didReceiveMemoryWarning() {
