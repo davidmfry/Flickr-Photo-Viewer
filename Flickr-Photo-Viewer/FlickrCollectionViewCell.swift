@@ -50,7 +50,7 @@ class FlickrCollectionViewCell: UICollectionViewCell
         self.clipsToBounds = true
         
         // creates the imageView with frame size
-        self.imageView = UIImageView(frame: CGRectMake(self.bounds.origin.x, self.bounds.origin.y, 320, 200))
+        self.imageView = UIImageView(frame: CGRectMake(self.bounds.origin.x, self.bounds.origin.y, 320, 160))
         
         // sets the content mode IE: in the right plane under view -> mode
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFill

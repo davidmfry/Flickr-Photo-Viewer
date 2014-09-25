@@ -58,7 +58,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
                     // Parallax offset
                     // the point at which the orgin of the content view is offset from the orgin of the scroll view
                     // ((orignOfTheContentViewPosY - currentFrameViewYPos) / cellHightWeDefined) * VelocityForTheScroll
-                    let yOffset = ((collectionView.contentOffset.y - cell.frame.origin.y) / 200) * 25
+                    let yOffset = ((collectionView.contentOffset.y - cell.frame.origin.y) / 160) * 25
                     cell.imageOffset = CGPointMake(0, yOffset)
                 })
             }
@@ -71,7 +71,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         for view in self.collectionView.visibleCells()
         {
             var view = view as FlickrCollectionViewCell
-            let yOffset = ((self.collectionView.contentOffset.y - view.frame.origin.y) / 200) * 25
+            let yOffset = ((self.collectionView.contentOffset.y - view.frame.origin.y) / 160) * 25
             
             view.setImageOffset(CGPointMake(0, yOffset))
         }
