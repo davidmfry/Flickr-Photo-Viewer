@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED8944D619D458BD00AD4519 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8944D519D458BD00AD4519 /* GalleryViewController.swift */; };
+		ED8944D819D4590000AD4519 /* FlickrCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8944D719D4590000AD4519 /* FlickrCollectionViewCell.swift */; };
 		EDF9FDDB19D333AC000CEA79 /* Flickr_Photo_ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFC171019D0E9F300E0E598 /* Flickr_Photo_ViewerTests.swift */; };
 		EDF9FDDE19D362AC000CEA79 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9FDD119D2FDD7000CEA79 /* FlickrPhoto.swift */; };
 		EDF9FDDF19D362DD000CEA79 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF9FDD119D2FDD7000CEA79 /* FlickrPhoto.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED8944D519D458BD00AD4519 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		ED8944D719D4590000AD4519 /* FlickrCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewCell.swift; sourceTree = "<group>"; };
 		EDF9FDD119D2FDD7000CEA79 /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		EDFC16F219D0E9F300E0E598 /* Flickr-Photo-Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr-Photo-Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFC16F619D0E9F300E0E598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				EDFC171A19D0EB2C00E0E598 /* FlickrHelper.swift */,
 				EDFC16F719D0E9F300E0E598 /* AppDelegate.swift */,
 				EDFC16FC19D0E9F300E0E598 /* ViewController.swift */,
+				ED8944D519D458BD00AD4519 /* GalleryViewController.swift */,
+				ED8944D719D4590000AD4519 /* FlickrCollectionViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -247,8 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFC171B19D0EB2C00E0E598 /* FlickrHelper.swift in Sources */,
+				ED8944D819D4590000AD4519 /* FlickrCollectionViewCell.swift in Sources */,
 				EDFC16FD19D0E9F300E0E598 /* ViewController.swift in Sources */,
 				EDFC16FB19D0E9F300E0E598 /* Flickr_Photo_Viewer.xcdatamodeld in Sources */,
+				ED8944D619D458BD00AD4519 /* GalleryViewController.swift in Sources */,
 				EDF9FDDF19D362DD000CEA79 /* FlickrPhoto.swift in Sources */,
 				EDFC16F819D0E9F300E0E598 /* AppDelegate.swift in Sources */,
 			);

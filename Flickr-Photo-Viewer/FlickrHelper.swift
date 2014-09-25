@@ -22,8 +22,9 @@ class FlickrHelper: NSObject
     {
         let apiKey = "4338f93627883f4e8e8241f594a58b20"
         let search = searchString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let numberOfPhotos = 100
         
-        return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(search!)&per_page=20&format=json&nojsoncallback=1"
+        return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(search!)&per_page=\(numberOfPhotos)&format=json&nojsoncallback=1"
         
     }
     
@@ -41,6 +42,7 @@ class FlickrHelper: NSObject
     
     func searchFlickrForString(searchString:String)
     {
+        // gets the url data from flickr based on the string given
         let url = NSURL(string: FlickrHelper.URLForSearchString(searchString))
         var resultsDict: NSDictionary?
         
@@ -67,7 +69,9 @@ class FlickrHelper: NSObject
                     
                     if status == "fail"
                     {
-                        println("There was an Error with the Json Data you requested")
+                        let messageString = jsonResult.objectForKey("message") as String
+                        let error = NSError(domain: "FlickrSearch", code: 0, userInfo: [NSLocalizedFailureReasonErrorKey:messageString])
+                        println(error)
                     }
                     
                     else
@@ -88,11 +92,12 @@ class FlickrHelper: NSObject
                             
                             var imageURLStr = FlickrHelper.URLForFlickrPhoto(flickrPhoto, size: "b")
                             var imageURL = NSURL(string: imageURLStr)
-                            var imageData = NSData(contentsOfURL: imageURL, options: nil, error: nil)
+//                            var imageData = NSData(contentsOfURL: imageURL, options: nil, error: nil)
+//                            
+//                            var image = UIImage(data: imageData)
+//                            flickrPhoto.thumbnail = image
                             
-                            var image = UIImage(data: imageData)
-                            flickrPhoto.thumbnail = image
-                            flickrPhotos.addObject(flickrPhoto)
+                            flickrPhotos.addObject(imageURL)
                             
                         }
                         self.delegate?.didGetJsonData(flickrPhotos)
