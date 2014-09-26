@@ -18,17 +18,17 @@ class FlickrHelper: NSObject
 {
     var delegate: FlickrHelperProtocol?
     
-    class func URLForSearchString(searchString:String) -> String
+    class func URLForSearchString(searchString:String, numberOfPhotosPerPage:Int) -> String
     {
         // API from flickr
         let apiKey = "4338f93627883f4e8e8241f594a58b20"
         // User give string and it escapes spaces
         let search = searchString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         // Number of photos per page
-        let numberOfPhotos = 100
+
         
         // The URL for doing the serach on the user given string
-        return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(search!)&per_page=\(numberOfPhotos)&format=json&nojsoncallback=1"
+        return "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(apiKey)&text=\(search!)&per_page=\(numberOfPhotosPerPage)&format=json&nojsoncallback=1"
         
     }
     
@@ -48,10 +48,10 @@ class FlickrHelper: NSObject
         return "https://farm\(photo.farm!).staticflickr.com/\(photo.server!)/\(photo.photoID!)_\(photo.secret!)_\(_size).jpg"
     }
     
-    func searchFlickrForString(searchString:String)
+    func searchFlickrForString(searchString:String, numberOfPhotosPerPage:Int )
     {
         // gets the url data from flickr based on the string given
-        let url = NSURL(string: FlickrHelper.URLForSearchString(searchString))
+        let url = NSURL(string: FlickrHelper.URLForSearchString(searchString, numberOfPhotosPerPage: numberOfPhotosPerPage))
         
         // The shared session
         let session = NSURLSession.sharedSession()

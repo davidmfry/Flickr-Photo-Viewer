@@ -24,7 +24,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.flickr.delegate = self
-        self.flickr.searchFlickrForString(self.searchTerm)
+        self.flickr.searchFlickrForString(self.searchTerm, numberOfPhotosPerPage: 100)
         println(self.searchTerm)
 
 

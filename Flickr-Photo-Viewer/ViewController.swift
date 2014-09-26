@@ -8,24 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, FlickrHelperProtocol {
+class ViewController: UIViewController, UISearchBarDelegate, FlickrHelperProtocol
+{
 
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var imageView: UIImageView!
     
+    @IBOutlet var backGroundImage: UIImageView!
+    
+    
     var step = 0
     
     var photoListDict: NSDictionary?
     let flickerHelper = FlickrHelper()
+
+
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.flickerHelper.delegate = self
         self.searchBar.becomeFirstResponder()
         self.searchBar.delegate = self
-
+        self.flickerHelper.delegate = self
+        self.flickerHelper.searchFlickrForString(self.randomSearchTerm(), numberOfPhotosPerPage: 20)
+    
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String)
@@ -71,17 +78,29 @@ class ViewController: UIViewController, UISearchBarDelegate, FlickrHelperProtoco
         
     }
     
-    
     func didGetJsonData(result: NSArray)
     {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            println(result)
-            
-            
+
+            self.backGroundImage.image = self.chooseFrontPhoto(result)
         })
     }
     
+    func randomSearchTerm() -> String
+    {
+        var frontPhotoSearchTermArray = ["cool places", "people", "music", "cars", "fashion", "good photography"]
+        let randomIndex = Int(arc4random_uniform(UInt32(frontPhotoSearchTermArray.count)))
+        return frontPhotoSearchTermArray[randomIndex]
+    }
     
+    func chooseFrontPhoto(imageUrlList:NSArray) ->UIImage
+    {
+        let randomIndex = Int(arc4random_uniform(UInt32(imageUrlList.count)))
+        let imageData = NSData(contentsOfURL: imageUrlList[randomIndex] as NSURL)
+        
+        return UIImage(data: imageData)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
