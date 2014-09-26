@@ -29,7 +29,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 
 
     }
-    
+//MARK: #Collection View Delegate and Data source methods
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return self.flickrResults.count
@@ -41,17 +41,22 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         cell.image = nil
         
+        // Variable for the global queue
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         dispatch_async(queue, { () -> Void in
             var error:NSError?
             
+            // The URL for the image data
             let searchURL = self.flickrResults.objectAtIndex(indexPath.item) as NSURL
+            // Puts the URL image data into an NSData variable
             let imageData = NSData(contentsOfURL: searchURL, options: nil, error: &error)
             
             if error == nil
             {
+                // Variable to store the image
                 let image = UIImage(data: imageData)
                 
+                // Starts and async download of the pictures
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     cell.image = image
                     
@@ -68,6 +73,10 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func scrollViewDidScroll(scrollView: UIScrollView)
     {
+        
+        // Parallax offset
+        // the point at which the orgin of the content view is offset from the orgin of the scroll view
+        // ((orignOfTheContentViewPosY - currentFrameViewYPos) / cellHightWeDefined) * VelocityForTheScroll
         for view in self.collectionView.visibleCells()
         {
             var view = view as FlickrCollectionViewCell
@@ -77,6 +86,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         }
     }
     
+//MARK: #Custom Protocol Methods
     func didGetJsonData(result: NSArray)
     {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
